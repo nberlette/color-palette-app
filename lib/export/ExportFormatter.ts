@@ -194,7 +194,7 @@ export class ExportFormatter {
    * Generate Tailwind Config
    */
   static generateTailwindConfig(colorSets: ColorSet[], gradients: Gradient[] = []): string {
-    let config = `/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  theme: {\n    extend: {\n      colors: {\n`
+    let config = `/** @satisfies {import('tailwindcss').Config} */\nexport default {\n  theme: {\n    extend: {\n      colors: {\n`
 
     colorSets.forEach((colorSet, index) => {
       const safeName = colorSet.name.toLowerCase().replace(/\s+/g, "-")
@@ -464,3 +464,5 @@ ExportFormatter.fmt.ts = await getPlugin("typescript-0.95.12");
 ExportFormatter.fmt.css = await getPlugin("g-plane/malva-v0.14.3");
 ExportFormatter.fmt.json = await getPlugin("json-0.21.0");
 ExportFormatter.fmt.toml = await getPlugin("toml-0.7.0");
+ExportFormatter.fmt.yaml = await getPlugin("g-plane/pretty_yaml-v0.5.1");
+ExportFormatter.fmt.html = await getPlugin("g-plane/markup_fmt-v0.24.0");
