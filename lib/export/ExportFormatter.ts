@@ -458,7 +458,7 @@ export class ExportFormatter {
   }
 }
 
-const getPlugin = async (p: string) => await dprint.createStreaming(await globalThis.fetch(`https://hungry-coyote-29.deno.dev/${p}.wasm`));
+const getPlugin = async (p: string) => await dprint.createStreaming(await globalThis.fetch(`https://dprint.deno.dev/${p}.wasm`));
 
 ExportFormatter.fmt.ts = await getPlugin("typescript-0.94.0");
 ExportFormatter.fmt.css = await getPlugin("g-plane/malva-v0.11.2");
