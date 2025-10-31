@@ -68,20 +68,23 @@ export function ExportOptions({ colors, className }: ExportOptionsProps) {
   
   const getFileExtension = (format: string) => {
     switch (format) {
+      case '': return 'txt';
       case 'css': return 'css';
       case 'sass': return 'scss';
       case 'less': return 'less';
-      case 'tailwind': return 'js';
-      case 'unocss': return 'js';
-      case 'windicss': return 'js';
-      case 'styled': return 'js';
-      case 'mui': return 'js';
+      case 'tailwind':
+      case 'unocss':
+      case 'windicss':
+      case 'styled':
+      case 'mui':
       case 'chakra': return 'js';
       case 'json':
       case 'yaml':
       case 'toml':
-      case '  ssssadaaaaaaaaa eedeedesess
-      default: return 'txt';
+      case 'html':
+        return format;
+      default: 
+        return format.trim().toLowerCase() || "css";
     }
   };
   
