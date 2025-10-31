@@ -77,6 +77,10 @@ export function ExportOptions({ colors, className }: ExportOptionsProps) {
       case 'styled': return 'js';
       case 'mui': return 'js';
       case 'chakra': return 'js';
+      case 'json':
+      case 'yaml':
+      case 'toml':
+      case '  ssssadaaaaaaaaa eedeedesess
       default: return 'txt';
     }
   };
