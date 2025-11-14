@@ -101,42 +101,55 @@ export function ExportPanel({ colorSets, gradients }: ExportPanelProps) {
         <div className="grid gap-4 py-4">
           <div className="flex border-b">
             <button
-              className="px-4 py-2 border-b-2 border-primary font-medium pointer-events-none"
+              className={`px-4 py-2 ${activeTab === "format" ? "border-b-2 border-primary font-medium" : ""}`}
+              onClick={() => setActiveTab("format")}
             >
-              {exportFormats.find((f) => f.id === exportFormat)?.name ?? "Format"}
+              Format
+            </button>
+            <button
+              className={`px-4 py-2 ${activeTab === "preview" ? "border-b-2 border-primary font-medium" : ""}`}
+              onClick={() => setActiveTab("preview")}
+            >
+              Preview
             </button>
           </div>
 
-          <div className="space-y-4 divide-y divide-muted">
-            <div className="grid gap-2">
-              <Label htmlFor="export-format" className="sr-only" ariaHidden="true">Select Export Format</Label>
-              <Select value={exportFormat} onValueChange={(value) => setExportFormat(value as ExportFormat)}>
-                <SelectTrigger id="export-format">
-                  <SelectValue placeholder="Select format" />
-                </SelectTrigger>
-                <SelectContent>
-                  {exportFormats.map((format) => (
-                    <SelectItem key={format.id} value={format.id}>
-                      <div className="flex flex-col">
-                        <span>{format.name}</span>
-                        <span className="text-xs text-muted-foreground">{format.description}</span>
-                      </div>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+          {activeTab === "format" && (
+            <div className="space-y-4">
+              <div className="grid gap-2">
+                <Label htmlFor="export-format">Select Format</Label>
+                <Select value={exportFormat} onValueChange={(value) => setExportFormat(value as ExportFormat)}>
+                  <SelectTrigger id="export-format">
+                    <SelectValue placeholder="Select format" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {exportFormats.map((format) => (
+                      <SelectItem key={format.id} value={format.id}>
+                        <div className="flex flex-col">
+                          <span>{format.name}</span>
+                          <span className="text-xs text-muted-foreground">{format.description}</span>
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
+          )}
 
-            <div className="space-y-2">
-              <Label htmlFor="export-code">Preview</Label>
-              <Textarea
-                id="export-code"
-                value={exportCode}
-                readOnly
-                className="font-mono text-xs h-48 overflow-auto"
-              />
+          {activeTab === "preview" && (
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="export-code">Code Preview</Label>
+                <Textarea
+                  id="export-code"
+                  value={exportCode}
+                  readOnly
+                  className="font-mono text-sm h-64 overflow-auto"
+                />
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="flex justify-end gap-2">
             <Button variant="outline" onClick={handleDownloadCode} className="flex items-center gap-2">
