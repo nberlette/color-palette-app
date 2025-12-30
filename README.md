@@ -1,34 +1,43 @@
-# 🎨 ColorSpin
+<div align="center">
 
-> A powerful, interactive color palette generator for designers and developers. Create beautiful, accessible color systems with just a few clicks.
+# 🎨 [colorspin](https://colorspin.vercel.app)
+
+_Powerful interactive color palette generator app with tailwind and CSS export options._
 
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen?style=for-the-badge)](https://colorspin.vercel.app)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](./LICENSE)
 [![Built with Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 
+</div>
+
 ---
 
-## ✨ Features
+## Features
 
-### 🎨 **Intelligent Color Generation**
+### Intelligent Color Generation
+
 - **10-shade palettes** automatically generated from a single base color
 - Smart lightness distribution from 50 (lightest) to 900 (darkest)
 - Real-time preview as you adjust parameters
 
-### 🔧 **Advanced Controls**
+### Advanced Controls
+
 - **Vibrancy slider**: Adjust color saturation intensity (0-100%)
 - **Hue shift**: Rotate colors around the color wheel (-180° to +180°)
 - **Interactive hex color picker** with live preview
 - **Randomize button**: Generate inspiring color combinations instantly
 
-### 🎭 **Multi-Palette Management**
+### Multi-Palette Management
+
 - Create and manage **multiple color sets** in one workspace
 - Name each color set for easy organization
 - Quick switching between palettes
 - Delete individual sets (with safety guard for last palette)
 
-### 🌈 **Color Harmony Explorer**
+### Color Harmony Explorer
+
 Discover professional color schemes based on color theory:
+
 - **Complementary**: Colors opposite on the wheel
 - **Analogous**: Adjacent harmonious colors
 - **Triadic**: Three evenly-spaced colors
@@ -36,67 +45,29 @@ Discover professional color schemes based on color theory:
 - **Split Complementary**: Base + two near-complement colors
 - **Monochromatic**: Shades of a single hue
 
-### 🎨 **Gradient Generator**
-- Create **linear** and **radial** gradients
-- Add/remove color stops dynamically
-- Adjust stop positions with visual sliders
-- Control gradient angle (linear) or center (radial)
-- Export to CSS with one click
+### Gradient Generator
 
-### ♿ **Accessibility Tools**
+- Create **linear** and **radial** gradients
+- Add/remove color stops dynamically, adjust positions with sliders
+- Control gradient angle (linear) or center (radial)
+
+### Accessibility Tools
+
 - **WCAG contrast ratio checker** for all shade combinations
 - Automatic AA/AAA level compliance indicators
 - Pass/fail status for text readability
 - Ensures your designs are accessible to everyone
 
-### 📋 **Export Options**
-- Copy individual hex values with one click
-- Export complete palette as:
-  - **CSS custom properties** (CSS variables)
-  - **Tailwind config** (drop-in configuration)
-  - **JSON** (for programmatic use)
-  - **Gradient CSS** (ready-to-use code)
+### Export Options
 
-### 🌓 **Dark Mode Support**
-- Toggle between light and dark themes
-- Theme preference persisted across sessions
-- Optimized contrast for both modes
+- **CSS custom properties** (CSS variables)
+- **Tailwind config** (drop-in configuration)
+- **JSON** (for programmatic use)
+- **Gradient CSS** (ready-to-use code)
 
 ---
 
-## 🚀 Quick Start
-
-### Prerequisites
-- **Node.js** 18+ 
-- **npm**, **yarn**, or **pnpm**
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/nberlette/colorspin.git
-cd colorspin
-
-# Install dependencies
-npm install
-# or
-pnpm install
-# or
-yarn install
-
-# Run the development server
-npm run dev
-# or
-pnpm dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to see the app in action! 🎉
-
----
-
-## 🎯 Usage
+## Usage
 
 ### Creating Your First Palette
 
@@ -130,10 +101,10 @@ Open [http://localhost:3000](http://localhost:3000) to see the app in action! �
 
 ---
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 - **[Next.js 15](https://nextjs.org/)** - React framework with App Router
-- **[React 19](https://react.dev/)** - UI library
+- **[React 19](https://react.dev/)** - JSX infrastructure
 - **[TypeScript](https://www.typescriptlang.org/)** - Type safety
 - **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first styling
 - **[Radix UI](https://www.radix-ui.com/)** - Accessible component primitives
@@ -144,7 +115,7 @@ Open [http://localhost:3000](http://localhost:3000) to see the app in action! �
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 colorspin/
@@ -175,28 +146,102 @@ ColorSpin uses **HSL (Hue, Saturation, Lightness)** color space for intelligent 
 - **Lightness** (0-100%): Brightness of the color
 
 This approach ensures:
-- ✅ Consistent lightness progression across shades
-- ✅ Natural-looking color variations
-- ✅ Better control over color relationships
-- ✅ Accessible contrast ratios
+- [x] Consistent lightness progression across shades
+- [x] Natural-looking color variations
+- [x] Better control over color relationships
+- [x] Accessible contrast ratios
 
 ---
 
-## 🤝 Contributing
+## Developing and Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+### Prerequisites
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Since this project is built with [Next.js], it requires a Node-like[^1] runtime in order to
+be deployed and function correctly. Additionally, some sort of package manager or dependency
+management utility is required. I recommend using [Bun] or [Deno], since each of them serve
+as both runtime **_and_** package manager, keeping things simple and centralized. They also
+both support TypeScript and TSX as a first-class citizen with **zero extra configuration**.
 
----
+### Installation
 
-## 📝 License
+#### 1. Clone
 
-This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
+##### `gh` ([GitHub CLI], recommended)
+
+```bash
+gh repo clone nberlette/colorspin
+```
+
+##### `git` (classic)
+
+```bash
+git clone https://github.com/nberlette/colorspin.git
+```
+
+###### First, change into the newly-cloned directory
+
+```bash
+cd colorspin
+```
+
+#### 2. Install
+
+###### Bun
+
+```bash
+bun import && bun install # import from pnpm-lock.yaml or package-lock.json
+```
+
+###### Deno
+
+```bash
+deno install
+```
+
+###### PNPM
+
+```bash
+pnpm i
+```
+
+###### Yarn
+
+```bash
+yarn install
+```
+
+###### NPM
+
+```bash
+npm i
+```
+
+#### 3. Develop
+
+```bash
+bun dev
+```
+
+```bash
+deno task dev
+```
+
+```bash
+pnpm dev
+```
+
+```bash
+yarn dev
+```
+
+```bash
+npm run dev
+```
+
+> [!TIP]
+>
+> Open [http://localhost:3000](http://localhost:3000) to see the app in action! 🎉
 
 ---
 
@@ -218,8 +263,19 @@ This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE
 
 <div align="center">
 
-**Made with ❤️ by [Nicholas Berlette](https://github.com/nberlette)**
+**Made with ❤️ by [Nicholas Berlette](https://github.com/nberlette)**. [MIT License].
 
-*If you find this useful, please consider giving it a ⭐️!*
+<small>
+  
+_If you find this useful, please consider giving it a ⭐️!_
 
-</div>
+</small></div>
+
+[Next.js]: https://nextjs.org
+[GitHub CLI]: https://cli.github.com
+[MIT License]: https://nick.mit-license.org/2024
+[Nicholas Berlette]: https://github.com/nberlette
+[GitHub]: https://github.com/nberlette/colorspin/#readme
+[issues]: https://github.com/nberlette/colorspin/issues
+[vercel]: https://vercel.com
+[colorspin]: https://colorspin.vercel.app
